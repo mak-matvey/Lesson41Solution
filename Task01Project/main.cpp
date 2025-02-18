@@ -5,7 +5,7 @@
 int main()
 {
 
-	srand(time(0));
+	//srand(time(0));
 
 	int arrayA[SIZE];
 	int arrayB[SIZE];
@@ -23,9 +23,9 @@ int main()
 	int sumB = sum(arrayB, SIZE);
 	int sumC = sum(arrayC, SIZE);
 
-	float avgA = (sumA + 0.0) / SIZE;
-	float avgB = (sumB + 0.0) / SIZE;
-	float avgC = (sumC + 0.0) / SIZE;
+	double avgA = sumA / SIZE;
+	double avgB = sumB / SIZE;
+	double avgC = sumC / SIZE;
 
 	cout << "Average mark in A: " << avgA << endl;
 	cout << "Average mark in B: " << avgB << endl;
