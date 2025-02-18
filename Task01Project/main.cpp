@@ -1,25 +1,37 @@
 #include "util.h"
+#include "logic.h"
 #include <ctime>
-#define SIZE 10
 
 int main()
 {
-	int array[SIZE];
 
-	random_init(array, SIZE, 0, 10);
+	srand(time(0));
 
-	cout << "Marks: " << convert(array, SIZE) << endl;
+	int arrayA[SIZE];
+	int arrayB[SIZE];
+	int arrayC[SIZE];
 
-	float sum = 0;
+	random_init(arrayA, SIZE, 0, MAX_MARK);
+	random_init(arrayB, SIZE, 0, MAX_MARK);
+	random_init(arrayC, SIZE, 0, MAX_MARK);
 
-	for (int i = 0; i < SIZE; i++)
-	{
-		sum += array[i];
-	}
+	cout << "Marks A: " << convert(arrayA, SIZE) << endl;
+	cout << "Marks B: " << convert(arrayB, SIZE) << endl;
+	cout << "Marks C: " << convert(arrayA, SIZE) << endl;
 
-	float avg = sum / SIZE;
+	int sumA = sum(arrayA, SIZE);
+	int sumB = sum(arrayB, SIZE);
+	int sumC = sum(arrayC, SIZE);
 
-	cout << "Average mark: " << avg << endl;
+	float avgA = (sumA + 0.0) / SIZE;
+	float avgB = (sumB + 0.0) / SIZE;
+	float avgC = (sumC + 0.0) / SIZE;
+
+	cout << "Average mark in A: " << avgA << endl;
+	cout << "Average mark in B: " << avgB << endl;
+	cout << "Average mark in C: " << avgC << endl;
+
+	cout << "Best class: " << best_class(avgA, avgB, avgC) << endl;
 
 	return 0;
 }
